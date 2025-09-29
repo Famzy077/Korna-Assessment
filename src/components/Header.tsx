@@ -137,6 +137,7 @@ const ActionItem = styled.div`
       display: none;
     }
   }
+  
 
   &:hover {
     color: ${({ theme }) => theme.colors.black};
@@ -148,19 +149,41 @@ const ActionItem = styled.div`
 `;
 
 const ProfilePicture = styled.div`
-  width: 37px;
-  height: 37px;
+  color: black;
+  display: flex;
+  gap: 20px;
+  align-items: end;
   border-radius: 50%;
   cursor: pointer;
+`;
+
+const SearchIconMobile = styled.div`
+  display: none;
+  color: ${({ theme }) => theme.colors.gray[500]};
+
+  ${mediaQueries.mobile} {
+    display: block;
+  }
 `;
 
 const ProfileImage = styled.img`
   width: 37px;
   height: 37px;
   border-radius: 50%;
+
+   ${mediaQueries.mobile} {
+    width: 34px;
+    height: 34px;
+  }
 `;
 const IconDiv = styled.div`
   color: ${({ theme }) => theme.colors.gray[500]};
+
+  
+  ${mediaQueries.mobile} {
+      display: none;
+  }
+  
 `;
 const Header = () => {
   return (
@@ -186,6 +209,9 @@ const Header = () => {
               <Bell style={{ fontSize: '1.3rem', cursor: 'pointer' }} />
             </IconDiv>
             <ProfilePicture>
+              <SearchIconMobile>
+                <IoSearchOutline style={{ fontSize: '1.7rem' }} />
+              </SearchIconMobile>
               <ProfileImage src="/profileAvatar.jpg" alt="profile image" />
             </ProfilePicture>
           </Actions>

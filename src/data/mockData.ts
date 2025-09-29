@@ -23,7 +23,7 @@ export const mockArticles: Article[] = [
   {
     author: {
       name: "In Level Up Coding by Attila Vágó",
-      image: "https://miro.medium.com/v2/resize:fill:40:40/1*sHhtYhaCe2Uc3IU0IgKwIQ.png"
+      image: "/girlAvater.png"
     },
     title: "Welcome To Dream-Driven Development Where Nothing Works",
     preview: "Half-baked diagrams, features that make no sense, Mikado architecture. You’ve seen it, you’ve lived it, and it has a name...",
@@ -38,7 +38,7 @@ export const mockArticles: Article[] = [
   {
     author: {
       name: "In Predict by Iswarya Writes",
-      image: "https://miro.medium.com/v2/resize:fill:40:40/1*sHhtYhaCe2Uc3IU0IgKwIQ.png"
+      image: "/guyAvater.png"
     },
     title: "Future-Proof Careers in the Age of AI: What You Should Learn in 2026",
     preview: "What if I told you that by this time next year, you could land a job that pays over $100,000 — and it won’t be threatened by AI?",
@@ -53,7 +53,7 @@ export const mockArticles: Article[] = [
   {
     author: {
       name: "In Clean Compiler",
-      image: "https://miro.medium.com/v2/resize:fill:40:40/1*sHhtYhaCe2Uc3IU0IgKwIQ.png"
+      image: "/AiAvatar.png"
     },
     title: "10 Java Collections Tricks Only Seniors Know",
     preview: "If you’ve been coding in Java for a while, you probably use List, Set, and Map every single day. But here’s the thing: most developers overlook some powerful tricks...",
@@ -68,7 +68,7 @@ export const mockArticles: Article[] = [
   {
     author: {
       name: "In The Generator by Jim the AI Whisperer",
-      image: "https://miro.medium.com/v2/resize:fill:40:40/1*sHhtYhaCe2Uc3IU0IgKwIQ.png"
+      image: "/cooperateAvatar.png"
     },
     title: "Want to see how insanely stupid AI really is? Ask ChatGPT to answer these riddles in just one word",
     preview: "Limiting output length reveals AI isn’t intelligent — it’s chatty!",
