@@ -1,5 +1,7 @@
 import type { Article, Topic, StaffPicks } from '../types';
+import { MdOutlineBookmarkAdd } from "react-icons/md";
 
+const Icon = { MdOutlineBookmarkAdd }
 export const mockArticles: Article[] = [
   {
     author: {
@@ -83,9 +85,9 @@ export const mockArticles: Article[] = [
 export const staffPicks: StaffPicks[] = [
   {
     author: {
-      name: "Zulie Brown",
+      name: "In The Medium Handbook by",
       image: "/avatar.png",
-      role: "In The Medium Handbook"
+      role: "Zulie @ Medium "
     },
     title: "How this brand strategist uses Medium to explore ideas, repurpose content, and land clients",
     preview: "Practical tips from a strategist who turned Medium into a business tool.",
@@ -124,7 +126,6 @@ export const recommendedTopics: Topic[] = [
   { name: "Productivity", category: "recommended" }
 ];
 
-// Who to Follow
 export const whoToFollow = [
   {
     name: "Dr. Derek Austin",
@@ -135,21 +136,21 @@ export const whoToFollow = [
   {
     name: "ITNEXT Publication",
     role: "A platform for IT developers & software engineers",
-    image: "/avatarCatoon.png",
+    image: "/avatarVector.png",
     url: "#"
   },
   {
     name: "Oliver Foster",
     role: "Primarily proficient in the Java programming ecosystem",
-    image: "/avatarCatoon.png",
+    image: "/avatarLady.png",
     url: "#"
   }
 ];
 
-// Reading List
+
 export const readingList = {
   description:
-    "Click the 🔖 on any story to easily add it to your reading list or a custom list that you can share.",
+    `Click the ${Icon} on any story to easily add it to your reading list or a custom list that you can share.`,
   helpLinks: [
     { text: "Help", url: "#" },
     { text: "Status", url: "#" },

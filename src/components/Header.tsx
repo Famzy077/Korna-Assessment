@@ -1,11 +1,9 @@
 // @ts-nocheck
 import styled from 'styled-components';
 import { mediaQueries } from '../styles/theme';
-import { BiMenu } from 'react-icons/bi';
 import { IoSearchOutline, IoNotificationsOutline } from 'react-icons/io5';
-import { SquarePen, Bell } from 'lucide-react';
+import { SquarePen, Bell, Menu, MoveUpRight } from 'lucide-react';
 
-// Container for the whole header structure
 const HeaderWrapper = styled.div`
   width: 100%;
   position: fixed;
@@ -16,14 +14,33 @@ const HeaderWrapper = styled.div`
   border-bottom: 1px solid ${({ theme }) => theme.colors.gray[200]};
 `;
 
-// Top bar container
+const OpenMobile = styled.a`
+  color: ${({ theme }) => theme.colors.primary};
+  padding: 10px 0;
+  text-align: center;
+  display: none;
+  font-size: 1.2rem;
+  border-bottom: 1px solid ${({ theme }) => theme.colors.gray[200]};
+  &:hover{
+    color: ${({ theme }) => theme.colors.primary};
+  }
+  // ${mediaQueries.tablet}{ /* I comment  out this tablet screen because it's affecting desktop screen too*/
+  //   display: block;
+  // }
+  ${mediaQueries.mobile}{
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+  }
+`;
+
 const TopBarContainer = styled.header`
   width: 100%;
-  padding: ${({ theme }) => theme.spacing.xs} ${({ theme }) => theme.spacing.md};
+  padding: 5px ${({ theme }) => theme.spacing.md};
   display: flex;
   align-items: center;
   ${mediaQueries.mobile} {
-    padding: 0 ${({ theme }) => theme.spacing.md};
+    padding: 10px ${({ theme }) => theme.spacing.md};
   }
 `;
 
@@ -36,8 +53,6 @@ const HeaderContent = styled.div`
   justify-content: space-between;
 `;
 
-// Left Section (Menu, Logo, Search)
-
 const LeftSection = styled.div`
   display: flex;
   align-items: center;
@@ -45,7 +60,7 @@ const LeftSection = styled.div`
 `;
 
 const Logo = styled.div`
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.primary};
   font-family: "Playfair Display", serif;
@@ -57,11 +72,10 @@ const Logo = styled.div`
   cursor: pointer;
 `;
 
-const MenuButton = styled(BiMenu)`
+const MenuButton = styled(Menu)`
   font-size: 1.8rem;
-  color: ${({ theme }) => theme.colors.gray[600]};
+  color: ${({ theme }) => theme.colors.gray[500]};
   cursor: pointer;
-  // font-weight: 400;
   display: block;
   ${mediaQueries.mobile} {
     font-size: 1.6rem;
@@ -74,11 +88,11 @@ const SearchBar = styled.div`
   background-color: ${({ theme }) => theme.colors.gray[100]};
   padding: 8px 12px;
   border-radius: 99px;
-  min-width: 250px;
+  min-width: 200px;
   gap: 8px;
 
   ${mediaQueries.mobile} {
-    display: none; /* Hide search bar on mobile */
+    display: none;
   }
 
   svg {
@@ -91,7 +105,8 @@ const SearchInput = styled.input`
   border: none;
   background: transparent;
   outline: none;
-  font-size: 0.95rem;
+  color: ${({ theme }) => theme.colors.gray[600]};
+  font-size: 0.8rem;
   color: ${({ theme }) => theme.colors.black};
   width: 100%;
   &::placeholder {
@@ -99,11 +114,9 @@ const SearchInput = styled.input`
   }
 `;
 
-// --- Right Section (Actions/Profile) ---
-
 const Actions = styled.div`
   display: flex;
-  align-items: center;
+  align-items: end;
   gap: ${({ theme }) => theme.spacing.lg};
 
   ${mediaQueries.mobile} {
@@ -114,14 +127,14 @@ const Actions = styled.div`
 const ActionItem = styled.div`
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
   cursor: pointer;
   color: ${({ theme }) => theme.colors.gray[800]};
   font-size: 0.95rem;
 
   ${mediaQueries.mobile} {
     span {
-      display: none; /* Hide text on mobile */
+      display: none;
     }
   }
 
@@ -135,27 +148,29 @@ const ActionItem = styled.div`
 `;
 
 const ProfilePicture = styled.div`
-  width: 32px;
-  height: 32px;
+  width: 37px;
+  height: 37px;
   border-radius: 50%;
   cursor: pointer;
 `;
 
 const ProfileImage = styled.img`
-  width: 32px;
-  height: 32px;
+  width: 37px;
+  height: 37px;
   border-radius: 50%;
-`
-
-export default function Header() {
+`;
+const IconDiv = styled.div`
+  color: ${({ theme }) => theme.colors.gray[500]};
+`;
+const Header = () => {
   return (
     <HeaderWrapper>
-      {/* Top Bar: Menu, Logo, Search, Write, Notifications, Profile */}
+      <OpenMobile href="#">Open in app <MoveUpRight size={19} style={{ marginRight: '4px' }} /> </OpenMobile>
       <TopBarContainer>
         <HeaderContent>
           <LeftSection>
 
-            <Logo> <MenuButton /> Medium</Logo>
+            <Logo> <MenuButton size={21} /> Medium</Logo>
             <SearchBar>
               <IoSearchOutline />
               <SearchInput placeholder="Search" />
@@ -164,10 +179,12 @@ export default function Header() {
 
           <Actions>
             <ActionItem>
-              <SquarePen style={{ fontSize: '1.3rem', cursor: 'pointer', color: 'gray' }} />
-              <span style={{ color: 'gray' }}>Write</span>
+              <IconDiv> <SquarePen style={{ fontSize: '1.3rem', cursor: 'pointer' }} /> </IconDiv>
+              <span style={{ color: 'gray', fontWeight: '400' }}>Write</span>
             </ActionItem>
-            <Bell style={{ fontSize: '1.3rem', cursor: 'pointer', color: 'gray' }} />
+            <IconDiv>
+              <Bell style={{ fontSize: '1.3rem', cursor: 'pointer' }} />
+            </IconDiv>
             <ProfilePicture>
               <ProfileImage src="/profileAvatar.jpg" alt="profile image" />
             </ProfilePicture>
@@ -178,3 +195,5 @@ export default function Header() {
     </HeaderWrapper>
   );
 }
+
+export default Header

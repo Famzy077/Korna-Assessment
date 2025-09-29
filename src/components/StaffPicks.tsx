@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import type { Article } from '../types';
 
 const StaffPicksContainer = styled.div`
-  margin-top: ${({ theme }) => theme.spacing.lg};
-  margin-bottom: ${({ theme }) => theme.spacing.xl};
+  margin-top: 40px;
 `;
 
 const Title = styled.h2`
@@ -22,9 +21,6 @@ const PicksList = styled.div`
 `;
 
 const PickCard = styled.article`
-  // display: flex;
-  // justify-content: space-between;
-  // gap: ${({ theme }) => theme.spacing.md};
   cursor: pointer;
   transition: background 0.2s ease;
 
@@ -58,15 +54,16 @@ const AuthorName = styled.span`
 
 const AuthorRole = styled.span`
   font-size: 0.8rem;
-  color: ${({ theme }) => theme.colors.gray[600]};
+  color: ${({ theme }) => theme.colors.gray[900]};
+  font-weight: 700;
 `;
 
 const ArticleTitle = styled.h3`
   font-size: 0.95rem;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.gray[900]};
-  margin-bottom: 4px;
-  line-height: 1.4;
+  margin-bottom: 5px;
+  line-height: 1.2;
 `;
 
 const ArticleSubtitle = styled.p`
@@ -81,16 +78,24 @@ const ThumbnailImage = styled.img`
   border-radius: 4px;
   flex-shrink: 0;
 `;
-const SeeTheFullList = styled.p`
-  color: ${({ theme }) => theme.colors.gray[700]};
-  font-size: 1rem;
+const SeeTheFullList = styled.a`
+  display: inline-block;
+  margin-top: ${({ theme }) => theme.spacing.sm};
+  color: ${({ theme }) => theme.colors.gray[600]};
+  font-size: 0.813rem;
+  text-decoration: none;
+
+  &:hover {
+    color: ${({ theme }) => theme.colors.gray[900]};
+  }
 `;
+
 
 interface StaffPicksProps {
   picks: Article[];
 }
 
-export default function StaffPicks({ picks }: StaffPicksProps) {
+const StaffPicks = ({ picks }: StaffPicksProps) => {
   return (
     <StaffPicksContainer>
       <Title>Staff Picks</Title>
@@ -103,7 +108,6 @@ export default function StaffPicks({ picks }: StaffPicksProps) {
                 <AuthorName>{pick.author.name}</AuthorName>
                 {pick.author.role && (
                   <>
-                    <span style={{ color: '#757575' }}>·</span>
                     <AuthorRole>{pick.author.role}</AuthorRole>
                   </>
                 )}
@@ -116,7 +120,8 @@ export default function StaffPicks({ picks }: StaffPicksProps) {
         ))}
 
       </PicksList>
-      <SeeTheFullList> See the full list </SeeTheFullList>
+      <SeeTheFullList href="#"> See the full list </SeeTheFullList>
     </StaffPicksContainer>
   );
 }
+export default StaffPicks

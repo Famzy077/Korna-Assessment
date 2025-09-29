@@ -3,13 +3,14 @@ import styled from 'styled-components';
 import { recommendedTopics } from '../data/mockData';
 
 const TagsContainer = styled.div`
-  margin-bottom: ${({ theme }) => theme.spacing.xl};
+  margin: 0;
 `;
 
 const Title = styled.h2`
   ${({ theme }) => theme.typography.body1};
   font-weight: 700;
   margin-bottom: ${({ theme }) => theme.spacing.lg};
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 const TagsGrid = styled.div`
@@ -20,7 +21,7 @@ const TagsGrid = styled.div`
 
 const Tag = styled.button`
   padding: ${({ theme }) => `${theme.spacing.xs} ${theme.spacing.sm}`};
-  background: ${({ theme }) => theme.colors.background};
+  background: ${({ theme }) => theme.colors.gray[200]};
   border: 1px solid ${({ theme }) => theme.colors.gray[200]};
   border-radius: 99px;
   color: ${({ theme }) => theme.colors.gray[700]};

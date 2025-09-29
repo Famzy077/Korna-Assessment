@@ -10,7 +10,7 @@ const Title = styled.h2`
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: ${({ theme }) => theme.spacing.md};
-  color: ${({ theme }) => theme.colors.black};
+  color: ${({ theme }) => theme.colors.primary};
 `;
 
 const List = styled.div`
@@ -56,10 +56,10 @@ const Role = styled.span`
 `;
 
 const FollowButton = styled.button`
-  background: ${({ theme }) => theme.colors.black};
-  color: #fff;
+  background: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.primary};
   padding: 6px 16px;
-  border: none;
+  border: 2px solid ${({ theme }) => theme.colors.gray[600]};
   border-radius: 99px;
   font-size: 0.8rem;
   font-weight: 600;
@@ -68,6 +68,8 @@ const FollowButton = styled.button`
 
   &:hover {
     background: ${({ theme }) => theme.colors.gray[800]};
+    color: ${({ theme }) => theme.colors.background};
+    border: 2px solid ${({ theme }) => theme.colors.gray[800]};
   }
 `;
 
